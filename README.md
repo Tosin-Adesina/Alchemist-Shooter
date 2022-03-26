@@ -88,11 +88,11 @@ Static elements database
 
 /instructions - page for showing all shopping lists
 
-![instruction page](public\imgs\instructions_page.jpg)
+![instruction page](public/imgs/instructions_page.jpg)
 
 /leaderboard - page for showing specific shopping list
 
-![leaderboard page](public\imgs\leaderboard_page.jpg)
+![leaderboard page](public/imgs/leaderboard_page.jpg)
 
 ## Site map
 
