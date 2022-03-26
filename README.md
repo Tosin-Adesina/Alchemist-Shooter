@@ -2,7 +2,7 @@
 
 ## Overview
 
-For my project I'll be making a game in which the player controls an alchemist, represented by a dot on the screen, who must avoid enemies(also dots) moving towards them(similar to agari.o but only one player). The player can shoot these objects with spells(smaller dots) to destroy them and their score is determined by how many enemies they destroy and how long they lasted before getting hit by an enemy. The game will also have power ups based on the 4 elements earth, fire, wind, and air, each with different effects. These elements can be combined to create even more power ups(water + air = ice, fire + earth = magma, etc). The power ups along with their combos and effects(represented as functions) will be stored in a database. In addition to the game I’ll also implement a leaderboard where players can enter their name at the end of a game so that their name and score is stored in a database and displayed.
+For my project I'll be making a game in which the player controls an alchemist, represented by a dot on the screen, who must avoid enemies(also dots) moving towards them(similar to agari.o but only one player). The player can shoot these objects with spells(smaller dots) to destroy them and their score is determined by how many enemies they destroy and how long they lasted before getting hit by an enemy. The game will also have power ups based on the 4 elements earth, fire, wind, and air, each with different effects. These elements can be combined to create even more power ups(water + air = ice, fire + earth = magma, etc). The power ups along with their combos and effects(represented as functions) will be stored in a database. In addition to the game I’ll also implement a leaderboard where players who are registed with usernames and passwords can enter their name at the end of a game so that their name and score is stored in a database and displayed.
 
 
 
@@ -10,7 +10,7 @@ For my project I'll be making a game in which the player controls an alchemist, 
 ## Data Model
 
 
-The application will store store players, the elements they have available to them, and their stats(player time, high score, enemies killed, etc)
+The application will store store players, their username and passwords, the elements they have available to them, and their stats(player time, high score, enemies killed, etc)
 
 * There will be a static database defining element interactions
 
@@ -26,6 +26,10 @@ An Example User:
     kills: 19
   ],
   elements: // an array of elements they've collected
+  login: [
+    user: 'username'
+    pass: 'pass'  //this won't be stored like this in the actual app, hashes will be used
+  ]
 }
 ```
 
@@ -118,26 +122,16 @@ Static elements database
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
 * (5 points) vue.js
     * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
 
 10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
 
 
-## [Link to Initial Main Project File](app.js) 
+## [Initial Main Project File](app.js) 
 
-(__TODO__: create a skeleton Express application with a package.json, app.js, views folder, etc. ... and link to your initial app.js_)
 
 ## Annotations / References Used
 
-(__TODO__: list any tutorials/references/etc. that you've based your code off of_)
-
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
+1. N/A
 
