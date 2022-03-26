@@ -81,15 +81,15 @@ Static elements database
 
 ## Wireframes
 
-/game - page for creating a new shopping list
+/game - page for playing the game
 
 ![game page](public/imgs/game_page.jpg)
 
-/instructions - page for showing all shopping lists
+/instructions - page for showing the instructions and list of powerups/elements and combos
 
 ![instruction page](public/imgs/instructions_page.jpg)
 
-/leaderboard - page for showing specific shopping list
+/leaderboard - page for showing leaderboard
 
 ![leaderboard page](public/imgs/leaderboard_page.jpg)
 
