@@ -77,8 +77,6 @@ Static elements database
 
 ## Wireframes
 
-(__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
-
 /game - page for creating a new shopping list
 
 ![game page](public/imgs/game_page.jpg)
