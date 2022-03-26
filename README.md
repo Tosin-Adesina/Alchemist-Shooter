@@ -125,7 +125,7 @@ Static elements database
 * (5 points) vue.js
     * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
 
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
+10 points total out of 8 required points 
 
 
 ## [Initial Main Project File](app.js) 
