@@ -84,7 +84,7 @@ Static elements database
 
 /game - page for creating a new shopping list
 
-![game page](game_page.jpg)
+![game page](https://github.com/[Tosin-Adesina]/[final-project-Tosin-Adesina]/blob/[master]/game_page.jpg?raw=true)
 
 /instructions - page for showing all shopping lists
 
