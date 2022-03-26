@@ -109,12 +109,12 @@ Static elements database
 
 (__TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://www.mongodb.com/download-center?jmp=docs&_ga=1.47552679.1838903181.1489282706#previous)_)
 
-1. as non-registered user, I can register a new account with the site
+1. as non-registered user, I can register a player account with the site
 2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+3. as a user, I can play the game
+4. as a user, I can view the leaderboard
+5. as a user, I can alter my stats on the leaderboard by playing the game
+6. as a user, I can delete my info from the leaderboard & delete my player account
 
 ## Research Topics
 
