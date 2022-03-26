@@ -84,7 +84,7 @@ Static elements database
 
 /game - page for creating a new shopping list
 
-![game page](public\imgs\game_page.jpg)
+![game page](game_page.jpg)
 
 /instructions - page for showing all shopping lists
 
