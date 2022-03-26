@@ -6,9 +6,9 @@ const passport = require('passport');
 const express = require('express');
 const path = require('path');
 
-const routes = require('./routes/index');
-const list = require('./routes/list');
-const listItem = require('./routes/list-item');
+const game = require('./routes/game');
+const instructions = require('./routes/instructions');
+const leaderboard = require('./routes/leaderboard');
 
 const app = express();
 
@@ -38,8 +38,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', routes);
-app.use('/list', list);
-app.use('/list-item', listItem);
+app.use('/', game);
+app.use('/instructions', instructions);
+app.use('/leaderboard', leaderboard);
 
 app.listen(3000);

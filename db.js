@@ -3,32 +3,32 @@ const mongoose = require('mongoose'),
   passportLocalMongoose = require('passport-local-mongoose');
 
 
-const User = new mongoose.Schema({
+const Player = new mongoose.Schema({
   // username, password
   lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
 });
 
-const Item = new mongoose.Schema({
+const Element = new mongoose.Schema({
 	name: {type: String, required: true},
-	quantity: {type: Number, min: 1, required: true},
-	checked: {type: Boolean, default: false, required: true}
+	dmg: {type: Number, min: 1, required: true},
+	firerate: {type: Number, min: 1, required: true}
 }, {
 	_id: true
 });
 
 
 const List = new mongoose.Schema({
-  user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+  player: {type: mongoose.Schema.Types.ObjectId, ref:'Player'},
   name: {type: String, required: true},
 	createdAt: {type: Date, required: true},
-	items: [Item]
+	elements: [Element]
 });
 
 
-User.plugin(passportLocalMongoose);
+Player.plugin(passportLocalMongoose);
 List.plugin(URLSlugs('name'));
 
-mongoose.model('User', User);
+mongoose.model('Player', Player);
 mongoose.model('List', List);
-mongoose.model('Item', Item);
-mongoose.connect('mongodb://localhost/grocerydb');
+mongoose.model('Element', Element);
+mongoose.connect('mongodb://localhost/alchemistdb');
