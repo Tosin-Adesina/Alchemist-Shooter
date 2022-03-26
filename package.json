@@ -20,6 +20,8 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "hbs": "^4.2.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^4.4.1",
     "mongoose": "^6.2.7",
     "mongoose-url-slugs": "^0.1.4",
     "passport": "^0.5.2",

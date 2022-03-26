@@ -82,17 +82,17 @@ Static elements database
 
 (__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
 
-/list/create - page for creating a new shopping list
+/game - page for creating a new shopping list
 
-![list create](documentation/list-create.png)
+![game page](public\imgs\game_page.jpg)
 
-/list - page for showing all shopping lists
+/instructions - page for showing all shopping lists
 
-![list](documentation/list.png)
+![instruction page](public\imgs\instructions_page.jpg)
 
-/list/slug - page for showing specific shopping list
+/leaderboard - page for showing specific shopping list
 
-![list](documentation/list-slug.png)
+![leaderboard page](public\imgs\leaderboard_page.jpg)
 
 ## Site map
 
