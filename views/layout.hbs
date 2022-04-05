@@ -1,28 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
 <head>
-<title></title>
-<link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Alchemist Shooter</title>
+    <meta charset="utf-8" lang="en">
+
 </head>
+
 <body>
-<div id="wrapper">
-<div id="hd">
-{{#if user}}
-<div>Logged in as: {{user.username}} (<a href="/logout">Logout</a>)
-</div> 
-{{/if}}
-	<h1>Shoppy Shoperson</h1>
-</div>
-<div id="bd">
-{{{body}}}
-</div>
-<div id="ft">
-{{#if user}}
-	<a href="/">Home</a> | 
-	<a href="/list/">All Lists</a> | 
-	<a href="/list/create">Create a New List</a>
-{{/if}}
-</div>
-</div>
+    <header>
+        <h1><a href='/'>Alchemist Shooter</a></h1>
+        <nav>
+            <a href="/game/playgame">Play Game</a>
+            <a href="/game/instructions">Instructions</a>
+            <a href="/game/leaderboard">Leaderboard</a>
+        </nav>
+    </header>
+    
+    {{{body}}}
+    
+
+
 </body>
+
 </html>

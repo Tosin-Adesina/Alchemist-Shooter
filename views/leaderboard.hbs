@@ -1,0 +1,22 @@
+<h2>Add your score to the leaderboard!</h2>
+
+
+<form method="POST" action="/game/leaderboard">
+    Name: <input type="text" name="playername">
+    Score: <input type="number" name="score">
+    <input type="submit">
+</form>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Score</th>
+    </tr>
+    {{#each players as |player|}}
+        <tr>
+            <td>{{player.name}}</td>
+            <td>{{player.score}}</td>
+        </tr>
+    {{/each}}
+</table>

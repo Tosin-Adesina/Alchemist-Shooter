@@ -1,0 +1,99 @@
+body {
+    padding: 50px;
+    font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: darkred;
+    background-color: black;
+  }
+  
+  a {
+     color: red; 
+  }
+  
+  .form-row {
+      padding:0.5em;
+  }
+  
+  form {
+      margin-top:1em;
+      margin-bottom:1em;
+  }
+  
+  #wrapper {
+      width:500px;
+      padding:2em;
+        background-color:#eee;
+  }
+  
+  #grocery-list {
+      background-color:#ddd;
+      padding: 1em;
+  }
+  
+  #grocery-list li {
+      list-style-type: none;
+      padding-top:0.25em;
+      padding-bottom:0.25em;
+  }
+  
+  #grocery-list li.checked {
+      text-decoration: line-through;
+      padding: 0.25em 0.25em 0.25em 1.5em;
+  }
+  
+  .qty {
+      width: 3em;
+  }
+  
+  input[type='checkbox'] {
+      margin-right: 1em;
+  }
+  
+  input[type=submit] {
+      padding:5px 15px; 
+      background:#ccc; 
+      border:0 none;
+      cursor:pointer;
+      font-size:1em;
+  }
+  
+  input {
+      font-size:1em;
+      display: block;
+  }
+  
+  input[type=submit]:hover {
+      background-color: red;
+      color: white;
+  }
+  
+  canvas {
+      border: 1px solid white;
+  }
+
+/* The following rules are from https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+  table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+  }
+  
+   td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* #elements tr:nth-child(even){background-color: #f2f2f2;} */
+  
+  table tr:hover {background-color: #ddd;}
+  table tr:hover td {
+    color: black;
+  }
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: Red;
+    color: white;
+/* End of rules from https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */

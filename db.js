@@ -1,34 +1,105 @@
-const mongoose = require('mongoose'),
-	URLSlugs = require('mongoose-url-slugs'),
-  passportLocalMongoose = require('passport-local-mongoose');
+const mongoose = require('mongoose');
 
 
-const Player = new mongoose.Schema({
-  // username, password
-  lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
+const ElementSchema = new mongoose.Schema({
+    name: String,
+    color: String,
+    dmg: Number,
+    firerate: Number,
+    projectileSize: Number,
+    combos: [{type: mongoose.Schema.Types.ObjectId, ref: 'ComboSchema'}],
 });
 
-const Element = new mongoose.Schema({
-	name: {type: String, required: true},
-	dmg: {type: Number, min: 1, required: true},
-	firerate: {type: Number, min: 1, required: true}
-}, {
-	_id: true
+const PlayerSchema = new mongoose.Schema({
+    playerid: String,
+    name: String,
+    score: Number
+})
+
+//The last attrivute of an element, "combos" is a list of elements that
+// the element can combine with to form new elements. "second_element"
+// is the second element being combined and "combo_name" is the name of
+// the resulting element which itself has an entry in the element table
+const ComboSchema = new mongoose.Schema({
+    second_element: String,
+    combo_name: String
+})
+
+mongoose.model('Element', ElementSchema);
+mongoose.model('Combo', ComboSchema);
+mongoose.model('Player', PlayerSchema);
+
+//Base Element Collection:
+const Element = mongoose.model('Element');
+const test = Element.find({name:'fire'}, (err, docs) =>{
+    if(docs.length === 0 ){
+        const fire = new Element({
+            name: 'fire',
+            color: 'orange',
+            dmg: 4,
+            firerate: 5,
+            projectileSize: 3.8,
+            combos: []
+        
+        });
+        const water = new Element({
+            name: 'water',
+            color: 'blue',
+            dmg: 6,
+            firerate: 3,
+            projectileSize: 6,
+            combos: []
+            
+        });
+        const air = new Element({
+            name: 'air',
+            color: 'whitesmoke',
+            dmg: 2,
+            firerate: 8,
+            projectileSize: 2,
+            combos: []
+            
+        });
+        const earth = new Element({
+            name: 'earth',
+            color: 'brown',
+            dmg: 10,
+            firerate: 1,
+            projectileSize: 8.5,
+            combos: []
+            
+        });
+        
+        fire.save();
+        water.save();
+        air.save();
+        earth.save();
+   }
 });
 
 
-const List = new mongoose.Schema({
-  player: {type: mongoose.Schema.Types.ObjectId, ref:'Player'},
-  name: {type: String, required: true},
-	createdAt: {type: Date, required: true},
-	elements: [Element]
+
+
+
+/*
+fire.save((err, element) =>{
+    water.save((err, element) =>{
+        air.save((err, element) =>{
+            earth.save((err, element) =>{
+                
+            });
+        });
+    });
 });
+*/
 
 
-Player.plugin(passportLocalMongoose);
-List.plugin(URLSlugs('name'));
 
-mongoose.model('Player', Player);
-mongoose.model('List', List);
-mongoose.model('Element', Element);
-mongoose.connect('mongodb://localhost/alchemistdb');
+mongoose.connect('mongodb://localhost/elementdb', (err) => {
+    if(err){
+        console.log('Oh no Tosin, an error ocuured!');
+    }
+    else{
+        console.log('Connected to Tosin\'s elementdb')
+    }
+});
