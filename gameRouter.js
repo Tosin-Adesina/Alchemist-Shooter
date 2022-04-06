@@ -29,8 +29,6 @@ router.post('/leaderboard', (req,res) =>{
         score: req.body.score
     });
     p.save((err,player) =>{
-        console.log('name is ');
-        console.log(req.body.playername);
         currentPlayerID+=1;
         res.redirect('/game/leaderboard');
     });
