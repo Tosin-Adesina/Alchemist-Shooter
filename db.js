@@ -98,6 +98,7 @@ fire.save((err, element) =>{
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/elementdb', (err) => {
     if(err){
         console.log('Oh no Tosin, an error ocuured!');
+        console.log(process.env.MONGODB_URL);
     }
     else{
         console.log('Connected to Tosin\'s elementdb')
