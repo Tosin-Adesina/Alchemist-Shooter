@@ -30,52 +30,52 @@ mongoose.model('Combo', ComboSchema);
 mongoose.model('Player', PlayerSchema);
 
 //Base Element Collection:
-const Element = mongoose.model('Element');
-const test = Element.find({name:'fire'}, (err, docs) =>{
-    if(docs.length === 0 ){
-        const fire = new Element({
-            name: 'fire',
-            color: 'orange',
-            dmg: 4,
-            firerate: 5,
-            projectileSize: 3.8,
-            combos: []
+// const Element = mongoose.model('Element');
+// const test = Element.find({name:'fire'}, (err, docs) =>{
+//     if(docs.length === 0 ){
+//         const fire = new Element({
+//             name: 'fire',
+//             color: 'orange',
+//             dmg: 4,
+//             firerate: 5,
+//             projectileSize: 3.8,
+//             combos: []
         
-        });
-        const water = new Element({
-            name: 'water',
-            color: 'blue',
-            dmg: 6,
-            firerate: 3,
-            projectileSize: 6,
-            combos: []
+//         });
+//         const water = new Element({
+//             name: 'water',
+//             color: 'blue',
+//             dmg: 6,
+//             firerate: 3,
+//             projectileSize: 6,
+//             combos: []
             
-        });
-        const air = new Element({
-            name: 'air',
-            color: 'whitesmoke',
-            dmg: 2,
-            firerate: 8,
-            projectileSize: 2,
-            combos: []
+//         });
+//         const air = new Element({
+//             name: 'air',
+//             color: 'whitesmoke',
+//             dmg: 2,
+//             firerate: 8,
+//             projectileSize: 2,
+//             combos: []
             
-        });
-        const earth = new Element({
-            name: 'earth',
-            color: 'brown',
-            dmg: 10,
-            firerate: 1,
-            projectileSize: 8.5,
-            combos: []
+//         });
+//         const earth = new Element({
+//             name: 'earth',
+//             color: 'brown',
+//             dmg: 10,
+//             firerate: 1,
+//             projectileSize: 8.5,
+//             combos: []
             
-        });
+//         });
         
-        fire.save();
-        water.save();
-        air.save();
-        earth.save();
-   }
-});
+//         fire.save();
+//         water.save();
+//         air.save();
+//         earth.save();
+//    }
+// });
 
 
 
