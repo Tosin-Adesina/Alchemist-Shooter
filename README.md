@@ -120,10 +120,9 @@ Static elements database
 
 (__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed_)
 
-* (5 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
+* (3 points) Deploy to heroku
+* (3 points) Canvas API - For displaying the game
+* (3 points) Player movement with event listeners
 
 10 points total out of 8 required points 
 
