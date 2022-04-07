@@ -95,9 +95,10 @@ fire.save((err, element) =>{
 
 
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/elementdb', (err) => {
+mongoose.connect('mongodb+srv://Tosin-Adesina:spider3474@cluster0.vzrl0.mongodb.net/elementdb?retryWrites=true&w=majority' || 'mongodb://localhost/elementdb', (err) => {
     if(err){
         console.log('Oh no Tosin, an error ocuured!');
+        console.log(err);
         console.log(process.env.MONGODB_URL);
     }
     else{
