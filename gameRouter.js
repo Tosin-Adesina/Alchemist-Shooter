@@ -9,18 +9,16 @@ router.get('/playgame', (req, res) => {
 
 
 router.get('/instructions', (req, res) => {
-    // Element.find({}, (err, docs) => {
-    //     res.render('instructions', {elements: docs});
-    // });
-    res.render('instructions');
+    Element.find({}, (err, docs) => {
+        res.render('instructions', {elements: docs});
+    });
 });
 
 router.get('/leaderboard', (req, res) => {
-    // Player.find({}, (err, docs) => {
-    //     res.render('leaderboard', {players: docs});
-    // })
+    Player.find({}, (err, docs) => {
+        res.render('leaderboard', {players: docs});
+    })
     
-    res.render('leaderboard');
 })
 
 let currentPlayerID = 1;
