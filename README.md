@@ -124,7 +124,7 @@ Static elements database
 * (3 points) Canvas API - For displaying the game
 * (3 points) Player movement with event listeners
 
-10 points total out of 8 required points 
+9 points total out of 8 required points 
 
 
 ## [Initial Main Project File](app.js) 

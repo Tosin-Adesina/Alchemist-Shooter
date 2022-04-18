@@ -4,17 +4,28 @@
 <div id="rules">
     <ul>
         <li>Move with the keys a,w,d, and s</li>
-        <li>Fire at enemies with the keys on the number pad(Not Yet Implemented)</li>
+        <li>Fire at enemies with the mouse</li>
     </ul>
 </div>
 
 <h3>Elements</h3>
+
+<form id="addElement" method="GET" action="/game/instructions">
+        Element Name: <input type="text" name="name">
+        Color: <input type="text" name="color">
+        Damage: <input type="number" name="dmg">
+        Fire rate: <input type="number" name="firerate">
+        Speed: <input type="number" name="speed">
+        Projectile Size: <input type="number" name="projectileSize">
+        <input type="submit">
+</form>
 <table id="elements">
     <tr>
         <th>Element Name</th>
         <th>Color</th>
         <th>Damage</th>
         <th>Fire Rate</th>
+        <th>Speed</th>
         <th>Projectile Size</th>
     </tr>
     {{#each elements as |element|}}
@@ -23,6 +34,7 @@
             <td>{{element.color}}</td>
             <td>{{element.dmg}}</td>
             <td>{{element.firerate}}</td>
+            <td>{{element.speed}}</td>
             <td>{{element.projectileSize}}</td>
         </tr>
     {{/each}}

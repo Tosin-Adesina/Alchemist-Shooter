@@ -1,29 +1,91 @@
 <canvas id="game"></canvas>
 <script scr="/scripts/game.js" type="module">
         ////////////////////////////////////////////////////
-        console.log("greetings from game.js");
-
         import Player from "/scripts/Player.js";
+        import Enemy from "/scripts/Enemy.js";
+        import checks from "/scripts/checks.js";
+        /*
+        let p = 0;
+        let c = 1;
+        {{#each elements as |element|}}
+           p += 1;           
+        {{/each}}
+        console.log(p);
+        */
+        /*
+        {{#each elements as |element|}}
+            let {{element.name}} = '1';
+            {{element.name}} = Object.keys({ {{element.name}} })[0];
+            console.log( {{element.name}} );
+
+            let {{element.color}} = '1';
+            {{element.color}} = Object.keys({ {{element.color}} })[0];
+            console.log( {{element.color}} );
+
+    
+            let {{element.dmg}} = '1';
+            {{element.dmg}} = Object.keys({ {{element.dmg}} })[0];
+            console.log( {{element.dmg}} );
+
+            let {{element.firerate}} = '1';
+            {{element.firerate}} = Object.keys({ {{element.firerate}} })[0];
+            console.log( {{element.firerate}} );
+            
+        {{/each}}
+        */
         const canvas = document.getElementById('game');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = 550;
-        canvas.height = 300;
+        canvas.width = 600;
+        canvas.height = 600;
 
         const player = new Player(canvas.width/2, canvas.height/2);
+        const enemies = [];
+        const colors = ['red', 'orange','yellow','green','blue','indigo','violet'];
+        for(let t = 0; t < 3; t++){
+            const y = 20+60*t;
+            for( let i = 0; i < 10; i++){
+                const x = 20 + 60*i;
+                Enemy.addEnemy(enemies,x,y,5-t,colors[t]);
+            }
+        }
+        
 
         function gameLoop(){
             setNeonStyle();
             ctx.fillStyle = 'black';
             ctx.fillRect(0,0, canvas.width, canvas.height);
-            player.draw(ctx);
+            checkIfEnemyHit(player.bullets, enemies);
+            player.drawBullets(ctx);
+            Enemy.drawEnemies(ctx,enemies);
+            player.drawPlayer(ctx);
+
         }
 
+        
+    
+        function checkIfEnemyHit(bullets, enemies){  
+            for(let i = 0; i < bullets.length; i++){
+                const b = bullets[i];
+                for(let j = 0; j < enemies.length; j++){
+                    const e = enemies[j];
+                    if(checks.checkCollision(e,b)){
+                        e.health -= b.dmg;
+                        b.pen -= 1;
+                    }
+                }
+            }
+        }
+
+        
+    
         function setNeonStyle(){
+            ctx.font = "20px serif";
             ctx.shadowColor = 'white';
             ctx.shadowBlur = 20;
             ctx.lineWidth = 4;
         }
         setInterval(gameLoop, 1000/60);
+        
         ////////////////////////////////////////////////////
     </script>

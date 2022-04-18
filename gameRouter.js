@@ -4,12 +4,36 @@ const Element = mongoose.model('Element');
 const Player = mongoose.model('Player');
 const router = express.Router();
 router.get('/playgame', (req, res) => {
-    res.render('playgame');
+    Element.find({}, (err, docs) => {
+        res.render('playgame', {elements: docs});
+    });
+    
 });
 
 
+
 router.get('/instructions', (req, res) => {
-    Element.find({}, (err, docs) => {
+    const search = {};
+    if(req.query.name !== '' && req.query.hasOwnProperty('name')){
+        search.name = req.query.name;
+    }
+    if(req.query.color !== '' && req.query.hasOwnProperty('color')){
+        search.color = req.query.color;
+    }
+    if(req.query.dmg !== '' && req.query.hasOwnProperty('dmg')){
+        search.dmg = req.query.dmg;
+    }
+    if(req.query.firerate !== '' && req.query.hasOwnProperty('firerate')){
+        search.firerate = req.query.firerate;
+    }
+    if(req.query.speed !== '' && req.query.hasOwnProperty('speed')){
+        search.speed = req.query.speed;
+    }
+    if(req.query.projectileSize !== '' && req.query.hasOwnProperty('projectileSize')){
+        search.projectileSize = req.query.projectileSize;
+    }
+
+    Element.find(search, (err, docs) => {
         res.render('instructions', {elements: docs});
     });
 });
@@ -17,7 +41,7 @@ router.get('/instructions', (req, res) => {
 router.get('/leaderboard', (req, res) => {
     Player.find({}, (err, docs) => {
         res.render('leaderboard', {players: docs});
-    })
+    });
     
 })
 

@@ -7,6 +7,7 @@ const ElementSchema = new mongoose.Schema({
     dmg: Number,
     firerate: Number,
     projectileSize: Number,
+    speed: Number,
     combos: [{type: mongoose.Schema.Types.ObjectId, ref: 'ComboSchema'}],
 });
 
@@ -29,69 +30,74 @@ mongoose.model('Element', ElementSchema);
 mongoose.model('Combo', ComboSchema);
 mongoose.model('Player', PlayerSchema);
 
-//Base Element Collection:
-// const Element = mongoose.model('Element');
-// const test = Element.find({name:'fire'}, (err, docs) =>{
-//     if(docs.length === 0 ){
-//         const fire = new Element({
-//             name: 'fire',
-//             color: 'orange',
-//             dmg: 4,
-//             firerate: 5,
-//             projectileSize: 3.8,
-//             combos: []
-        
-//         });
-//         const water = new Element({
-//             name: 'water',
-//             color: 'blue',
-//             dmg: 6,
-//             firerate: 3,
-//             projectileSize: 6,
-//             combos: []
+if(!(process.env.MONGODB_URI)){
+    //Base Element Collection:
+    const Element = mongoose.model('Element');
+    const test = Element.find({name:'fire'}, (err, docs) =>{
+        if(docs.length === 0 ){
+            const fire = new Element({
+                name: 'fire',
+                color: 'orange',
+                dmg: 4,
+                firerate: 5,
+                projectileSize: 3.8,
+                speed: 5,
+                combos: []
             
-//         });
-//         const air = new Element({
-//             name: 'air',
-//             color: 'whitesmoke',
-//             dmg: 2,
-//             firerate: 8,
-//             projectileSize: 2,
-//             combos: []
-            
-//         });
-//         const earth = new Element({
-//             name: 'earth',
-//             color: 'brown',
-//             dmg: 10,
-//             firerate: 1,
-//             projectileSize: 8.5,
-//             combos: []
-            
-//         });
-        
-//         fire.save();
-//         water.save();
-//         air.save();
-//         earth.save();
-//    }
-// });
-
-
-
-
-
-/*
-fire.save((err, element) =>{
-    water.save((err, element) =>{
-        air.save((err, element) =>{
-            earth.save((err, element) =>{
+            });
+            const water = new Element({
+                name: 'water',
+                color: 'blue',
+                dmg: 6,
+                firerate: 3,
+                projectileSize: 6,
+                speed: 3,
+                combos: []
                 
             });
-        });
+            const air = new Element({
+                name: 'air',
+                color: 'whitesmoke',
+                dmg: 2,
+                firerate: 8,
+                projectileSize: 2,
+                speed: 8,
+                combos: []
+                
+            });
+            const earth = new Element({
+                name: 'earth',
+                color: 'brown',
+                dmg: 10,
+                firerate: 1,
+                projectileSize: 8.5,
+                speed: 1,
+                combos: []
+                
+            });
+            
+            fire.save();
+            water.save();
+            air.save();
+            earth.save();
+    }
     });
-});
-*/
+
+
+
+
+
+
+    // fire.save((err, element) =>{
+    //     water.save((err, element) =>{
+    //         air.save((err, element) =>{
+    //             earth.save((err, element) =>{
+                    
+    //             });
+    //         });
+    //     });
+    // });
+}
 
 
 

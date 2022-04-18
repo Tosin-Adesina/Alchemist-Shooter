@@ -68,6 +68,7 @@ body {
   
   canvas {
       border: 1px solid white;
+      display: inline-block;
   }
 
 /* The following rules are from https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
@@ -96,4 +97,31 @@ body {
     text-align: left;
     background-color: Red;
     color: white;
+  }
 /* End of rules from https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+
+#catalog {
+    display: none;
+}
+/* 
+#addElement {
+    left: 50px; 
+    bottom: 200px;
+
+    border: 1px solid white;
+    display: inline-block;
+    position: relative;
+} */
+
+/* div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    color: red;
+    display: inline-block;
+} */
+
+#selectedElements {
+    display: inline-block;
+
+}
