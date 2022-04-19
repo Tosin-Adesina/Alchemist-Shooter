@@ -38,6 +38,22 @@ router.get('/instructions', (req, res) => {
     });
 });
 
+router.post('/instructions', (req,res) =>{
+    const e = new Element({
+        name: req.body.name,
+        color: req.body.color,
+        dmg: req.body.dmg,
+        firerate: req.body.firerate,
+        projectileSize: req.body.projectileSize,
+        speed: req.body.speed,
+        combos: []
+    });
+    e.save((err,element) =>{
+        res.redirect('/game/instructions');
+    });
+    
+})
+
 router.get('/leaderboard', (req, res) => {
     Player.find({}, (err, docs) => {
         res.render('leaderboard', {players: docs});
