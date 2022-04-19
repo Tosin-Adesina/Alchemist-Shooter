@@ -14,6 +14,7 @@ router.get('/playgame', (req, res) => {
 
 router.get('/instructions', (req, res) => {
     const search = {};
+    /*
     if(req.query.name !== '' && req.query.hasOwnProperty('name')){
         search.name = req.query.name;
     }
@@ -32,11 +33,13 @@ router.get('/instructions', (req, res) => {
     if(req.query.projectileSize !== '' && req.query.hasOwnProperty('projectileSize')){
         search.projectileSize = req.query.projectileSize;
     }
+    */
 
     Element.find(search, (err, docs) => {
         res.render('instructions', {elements: docs});
     });
 });
+
 
 router.post('/instructions', (req,res) =>{
     const e = new Element({
