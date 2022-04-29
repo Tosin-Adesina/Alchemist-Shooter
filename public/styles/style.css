@@ -3,6 +3,7 @@ body {
     font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
     color: darkred;
     background-color: black;
+    height: 90%;
   }
   
   a {
@@ -58,7 +59,7 @@ body {
   
   input {
       font-size:1em;
-      display: block;
+      display: inline;
   }
   
   input[type=submit]:hover {
@@ -66,10 +67,7 @@ body {
       color: white;
   }
   
-  canvas {
-      border: 1px solid white;
-      display: inline-block;
-  }
+
 
 /* The following rules are from https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
   table {
@@ -117,11 +115,104 @@ body {
     width: 50px;
     height: 50px;
     border: 1px solid white;
+    position: relative;
+}   */
+
+canvas {
+    border: 1px solid white;
+    display: inline-block;
+    position: absolute;
+    visibility: hidden;
+}
+
+#startbutton {
+    position: relative;
+    display: block;
+}
+
+#deathScreen {
+    
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    top: -275px; 
+    visibility: hidden; 
+}
+
+#gameover {
+    font-size: 100px; 
+}
+
+/* #gameArea {
+    border: 1px solid white;
+    text-align: center;
+} */
+
+#hud {
+    border: 1px solid white;
     color: red;
     display: inline-block;
-} */
+    position: relative;
+} 
+
+h5 {
+    display: inline-block;
+    position: absolute;     
+}
+
+#healthbarcontainer {
+    width: 100%;
+    height: 50px;
+    border: 1px solid white;
+    position: absolute;
+    top: 10%;
+}  
+
+#health {
+    width: 100%;
+    height: 50px;
+    background-color: green;
+    position: absolute;
+    top: 10%;
+}  
+
+#score {
+    display: none;
+}
 
 #selectedElements {
     display: inline-block;
 
+}
+
+#currentElementTitle{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 20%;
+}
+
+#currentElement{
+    width: 100%;
+    height: 50px;
+    border: 1px solid white;
+    color: white;
+    position: absolute;
+    top: 30%;
+}
+
+#scoreTitle{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 40%;
+}
+
+#currentScore{
+    width: 100%;
+    height: 50px;
+    border: 1px solid white;
+    color: white;
+    position: absolute;
+    top: 50%;
 }

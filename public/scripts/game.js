@@ -4,6 +4,9 @@ console.log("greetings from game.js");
 import Player from "/scripts/Player.js";
 import Enemy from "/scripts/Enemy.js";
 
+
+
+
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
@@ -16,6 +19,8 @@ for( let i = 0; i < 10; i++){
     const x = 20 + 60*i;
     Enemy.addEnemy(enemies,x,100);
 }
+
+
 
 
 function gameLoop(){

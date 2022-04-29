@@ -1,33 +1,18 @@
 <button id="startbutton">Start Game</button>
-<div id="gameArea">
-    <canvas id="game"></canvas>
-    <div id="deathScreen">
-        <div id="gameover">Game Over</div>
-        <br>
-        Enter your name to be added to the leaderboard
-        <form method="POST" action="/game/playgame">
-            Name: <input  id="playername" type="text" name="playername">
-            <input id="score" type="number" name="score">
-            <input id="addScore" type="submit">
-        </form>
-    </div>
-    <div id="hud">
-        <h5>Health</h5>
-        <div id = "healthbarcontainer"></div>
-        <div id = "health"></div>
-        <h5 id="currentElementTitle">Current Element</h5>
-        <div id = "currentElement">None</div>
-        <h5 id="scoreTitle">Score</h5>
-        <div id="currentScore">0</div>
-    </div>
+<canvas id="game"></canvas>
+{{!-- <div id="deathScreen">Game Over</div> --}}
+<div id="hud">
+    <h5>Health</h5>
+    <div id = "healthbarcontainer"></div>
+    <div id = "health"></div>
 </div>
+
 <script scr="/scripts/game.js" type="module">
         ////////////////////////////////////////////////////
         import Player from "/scripts/Player.js";
         import Enemy from "/scripts/Enemy.js";
         import checks from "/scripts/checks.js";
         import SpawnTemplate from "/scripts/SpawnTemplate.js";
-        import PowerUp from "/scripts/PowerUp.js";
        
         const url = "http://localhost:3000/game/api/elements";
         const res = await fetch(url);
@@ -42,21 +27,10 @@
         hud.style.height = canvas.height + 'px';
         hud.style.width = canvas.width/3 + 'px'; 
 
-        const deathScreen = document.getElementById('deathScreen');
-        deathScreen.style.height = canvas.height + 'px';
-        deathScreen.style.width = canvas.width + 'px';
-        //deathScreen.style.fontSize = 100 + 'px';
-        //deathScreen.style.top = '-' + (canvas.height-90) + 'px';
         const health = document.getElementById("health");
 
-        const scoreDisplay = document.getElementById('currentScore');
-////////
-        
-////////////
         const player = new Player(canvas.width/2, canvas.height/2);
         const enemies = [];
-        let powerUps;
-        let floatingPowerUps = [];
                 
 
         const levels = [[],[],[]];
@@ -76,52 +50,42 @@
 
         const spawnFrequency = [5, 10, 15];
 
-        
+
 
 
 
         let gameInterval;
         let enemySpawnerInterval;
-        let f;
-        document.getElementById("startbutton").addEventListener("click", async () => {
-            const powerUps = await PowerUp.getPowerUps();
+        document.getElementById("startbutton").addEventListener("click", () => {
             document.getElementById("game").style.visibility = "visible";
 
-            
+            gameLoop();
             gameInterval = setInterval(gameLoop, 1000/60);
 
             //increaseDifficulty isn't called immediately so it starts at zero
             const increaseDifficultyInterval = setInterval(increaseDifficulty, 1000 * 30);
             
-            changeSpawnRate();
             const spawnRateInterval = setInterval(changeSpawnRate, 1000*30);
 
             increaseScore();
-            const scoreInterval = setInterval(increaseScore, 1);
-        
-            const spawnPowerUpInterval = setInterval(spawnPowerUp, 1000 * 10);
-            PowerUp.spawnTop(ctx, canvas.width, powerUps, floatingPowerUps);
-            function spawnPowerUp(){
-                PowerUp.spawnTop(ctx, canvas.width, powerUps, floatingPowerUps);
-            }
+            const scoreInterval = setInterval(increaseScore, 1000);
 
-            function gameLoop(){
-                checks.setNeonStyle(ctx);
-                ctx.fillStyle = 'black';
-                ctx.fillRect(0,0, canvas.width, canvas.height);
-                checks.checkIfEnemyHit(player.bullets, enemies);
-                checks.checkIfPlayerHit(enemies, player, gameInterval, health, score, scoreInterval);
-                checks.checkIfPowerUpTouched(floatingPowerUps, player, health);
-                player.drawBullets(ctx);
-                Enemy.drawEnemies(ctx,enemies, player.x, player.y);
-                player.drawPlayer(ctx);
-                PowerUp.drawPowerUp(ctx,canvas.height, canvas.width, floatingPowerUps);
-            }
+
         });
 
         
 
-        
+        function gameLoop(){
+            checks.setNeonStyle(ctx);
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0,0, canvas.width, canvas.height);
+            checks.checkIfEnemyHit(player.bullets, enemies);
+            checks.checkIfPlayerHit(enemies, player, gameInterval, health);
+            player.drawBullets(ctx);
+            Enemy.drawEnemies(ctx,enemies, player.x, player.y);
+            player.drawPlayer(ctx);
+            console.log(currentlevel);
+        }
 
         function increaseDifficulty(){
             if(currentlevel < 2){
@@ -129,7 +93,7 @@
             }
         }
 
-        function changeSpawnRate(){
+        function startEnemySpawner(){
             SpawnTemplate.spawnEnemies(canvas, enemies, levels[currentlevel]);
             clearInterval(enemySpawnerInterval);
             enemySpawnerInterval = setInterval(() => {
@@ -139,12 +103,8 @@
 
         function increaseScore(){
             score += 1;
-            scoreDisplay.innerHTML = score;
-            
         }
-
-
-                
+        
 
         
         ////////////////////////////////////////////////////

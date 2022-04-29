@@ -65,18 +65,42 @@ router.get('/leaderboard', (req, res) => {
 })
 
 let currentPlayerID = 1;
-router.post('/leaderboard', (req,res) =>{
+// router.post('/playgame', (req,res) =>{
+//     console.log(req.body.score);
+//     console.log(req.body.playername);
+//     console.log('hiiiiiiiiii');
+    
+//     const p = new Player({
+//         playerid: currentPlayerID,
+//         name: req.body.playername,
+//         score: req.body.score
+//     });
+//     p.save((err,player) =>{
+//         currentPlayerID+=1;
+//         res.render('playgame', {elements: docs});
+//         //res.redirect('/game/leaderboard');
+//     });
+    
+// });
+
+router.post('/playgame', async (req, res) => {
+    console.log(req.body.score);
+    console.log(req.body.name);
+    console.log('hiiiiiiiiii');
     const p = new Player({
         playerid: currentPlayerID,
         name: req.body.playername,
         score: req.body.score
     });
-    p.save((err,player) =>{
-        currentPlayerID+=1;
-        res.redirect('/game/leaderboard');
-    });
-    
-})
+    const saved = await p.save();
+    res.redirect('leaderboard');
+  });
+
+router.get('/api/elements', async (req, res) =>{
+    const elements = await Element.find({}).exec();
+    res.json(elements);
+});
+
 
 
 

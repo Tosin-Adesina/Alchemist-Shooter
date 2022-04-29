@@ -1,24 +1,5 @@
-<h2>How To Play</h3>
-
-<h3>Controls</h3>
-<div id="rules">
-    <ul>
-        <li>Move with the keys a,w,d, and s</li>
-        <li>Fire at enemies with the mouse.</li>
-    </ul>
-</div>
-
 <h3>Elements</h3>
 
-<form id="addElement" method="POST" action="/game/instructions">
-        Element Name: <input type="text" name="name">
-        Color: <input type="text" name="color">
-        Damage: <input type="number" name="dmg">
-        Fire rate: <input type="number" name="firerate">
-        Speed: <input type="number" name="speed">
-        Projectile Size: <input type="number" name="projectileSize">
-        <input type="submit">
-</form>
 <table id="elements">
     <tr>
         <th>Element Name</th>
@@ -39,3 +20,14 @@
         </tr>
     {{/each}}
 </table>
+
+<h3>Transcribe a new element into you archive. Elements will spawn in game as small squares at random and heal you upon picking them up</h3>
+<form id="addElement" method="POST" action="/game/instructions">
+        <input type="text" name="name" placeholder="Element Name">
+        <input type="text" name="color" placeholder="Color">
+        <input type="number" name="dmg" placeholder="Damage">
+        <input type="number" name="firerate" placeholder="Fire rate">
+        <input type="number" name="speed" placeholder="Speed">
+        <input type="number" name="projectileSize" placeholder="Projectile Size">
+        <input type="submit" value="Add">
+</form>
