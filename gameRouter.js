@@ -43,7 +43,7 @@ router.get('/instructions', (req, res) => {
 
 router.post('/instructions', (req,res) =>{
     const e = new Element({
-        name: req.body.name,
+        name: req.body.nametoLowerCase(),
         color: req.body.color,
         dmg: req.body.dmg,
         firerate: req.body.firerate,
