@@ -29,9 +29,6 @@
         import SpawnTemplate from "/scripts/SpawnTemplate.js";
         import PowerUp from "/scripts/PowerUp.js";
        
-        const url = "http://localhost:3000/game/api/elements";
-        const res = await fetch(url);
-        const elements = await res.json();
         
         const canvas = document.getElementById('game');
         const ctx = canvas.getContext('2d');
