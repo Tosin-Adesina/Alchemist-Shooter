@@ -58,10 +58,27 @@ router.post('/instructions', (req,res) =>{
 
 router.get('/leaderboard', (req, res) => {
     Player.find({}, (err, docs) => {
+        let arr = [1, 3, 2];
+        
+       // docs.sort((a,b) => {a.score-b.score});
+        docs.sort((a,b) => {
+            if(a.score < b.score){
+                return 1;
+            }
+            else if(a.score > b.score){
+                return -1;
+            }
+            else{
+                return 0;
+            }
+        });
+        console.log(docs);
         res.render('leaderboard', {players: docs});
     });
     
 })
+
+
 
 let currentPlayerID = 1;
 // router.post('/playgame', (req,res) =>{
